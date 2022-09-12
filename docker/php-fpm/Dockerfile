@@ -60,8 +60,9 @@ ADD ./docker/php-fpm/agent-install.sh /agent-install.sh
 # Install & instrument AppDynamics PHP Agent
 RUN sh /agent-install.sh
 
+RUN sed -i '/priority\svalue=/s/".*"/"'${AGENT_LOGS_LEVEL}'"/' ${PHP_AGENT_DIR}/appdynamics-php-agent-linux_x64/php/conf/appdynamics_agent_log4cxx.xml
+
 # copy logger config file (trace logs enabled)
-RUN sed -i '/priority\svalue=/s/".*"/"'"${AGENT_LOGS_LEVEL}"'"/' ${PHP_AGENT_DIR}/appdynamics-php-agent-linux_x64/php/conf/appdynamics_agent_log4cxx.xml
 # COPY ./appdynamics_agent_log4cxx.xml ${PHP_AGENT_DIR}/appdynamics-php-agent-linux_x64/php/conf/appdynamics_agent_log4cxx.xml
 
 

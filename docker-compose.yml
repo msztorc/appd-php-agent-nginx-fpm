@@ -25,6 +25,7 @@ services:
         - APPDYNAMICS_HTTP_PROXY_USER=${APPDYNAMICS_HTTP_PROXY_USER}
         - APPDYNAMICS_HTTP_PROXY_PASSWORD_FILE=${APPDYNAMICS_HTTP_PROXY_PASSWORD_FILE}
         - AGENT_LOGS_PATH=${AGENT_LOGS_PATH}
+        - AGENT_LOGS_LEVEL=${AGENT_LOGS_LEVEL}
     container_name: "appd-sample-phpfpm"
     tty: true
     volumes:
